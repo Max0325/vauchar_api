@@ -1,5 +1,5 @@
 require "vauchar_api/configuration"
-# require "active_resource"
+require "active_resource"
 
 require "vauchar_api/version"
 
@@ -11,4 +11,4 @@ module VaucharAPI
   end
 end
 
-# require "vauchar_api/resources"
+require "vauchar_api/resources"
