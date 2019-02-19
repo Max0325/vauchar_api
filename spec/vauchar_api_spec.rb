@@ -1,6 +1,6 @@
-RSpec.describe VaucharApi do
+RSpec.describe VaucharAPI do
   it "has a version number" do
-    expect(VaucharApi::VERSION).not_to be nil
+    expect(VaucharAPI::VERSION).not_to be nil
   end
 
   it "does something useful" do
