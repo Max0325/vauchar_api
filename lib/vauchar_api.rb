@@ -1,3 +1,4 @@
+require "active_resource"
 require "vauchar_api/configuration"
 require "active_resource"
 
