@@ -5,7 +5,9 @@ module VaucharAPI
     cattr_accessor :static_headers
     self.static_headers = headers
     self.site = "https://api.vauchar.com"
+    self.format = ::JsonFormatter.new(:collection_name)
     self.include_format_in_path = false
+    self.include_root_in_json = false
 
     class << self
       # def user
