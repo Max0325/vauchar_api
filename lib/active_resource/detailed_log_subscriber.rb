@@ -1,6 +1,7 @@
 module ActiveResource
   class DetailedLogSubscriber < ActiveSupport::LogSubscriber
     def request(event)
+      p event
       log_request_response_details(event)
       # warn_on_deprecated_header(event)
     end

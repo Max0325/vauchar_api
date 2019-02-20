@@ -1,6 +1,6 @@
-require "active_resource"
 require "vauchar_api/configuration"
 require "active_resource"
+require "active_resource/detailed_log_subscriber"
 
 require "vauchar_api/version"
 
