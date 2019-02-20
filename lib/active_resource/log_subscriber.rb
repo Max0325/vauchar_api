@@ -1,5 +1,5 @@
 module ActiveResource
-  class DetailedLogSubscriber < ActiveSupport::LogSubscriber
+  class LogSubscriber < ActiveSupport::LogSubscriber
     def request(event)
       p event
       log_request_response_details(event)
@@ -40,4 +40,4 @@ module ActiveResource
   end
 end
 
-ActiveResource::DetailedLogSubscriber.attach_to :active_resource_detailed
+ActiveResource::LogSubscriber.attach_to :active_resource_detailed

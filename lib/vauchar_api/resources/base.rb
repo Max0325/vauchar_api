@@ -7,16 +7,24 @@ module VaucharAPI
     self.site = "https://api.vauchar.com"
 
     class << self
-      def headers
-        @headers = static_headers.clone
-        @headers["Authorization"] = api_token
-        @headers
+      def user
+        Configuration.merchant_id
       end
 
-      def api_token
-        token = Base64.strict_encode64 "#{Configuration.merchant_id}:#{Configuration.api_key}"
-        "Basic #{token}"
+      def password
+        Configuration.api_key
       end
+
+      # def headers
+      #   @headers = static_headers.clone
+      #   @headers["Authorization"] = api_token
+      #   @headers
+      # end
+
+      # def api_token
+      #   token = Base64.strict_encode64 "#{Configuration.merchant_id}:#{Configuration.api_key}"
+      #   "Basic #{token}"
+      # end
 
       # def init_prefix(resource)
       #   init_prefix_explicit(resource.to_s.pluralize, "#{resource}_id")
