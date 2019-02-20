@@ -1,8 +1,9 @@
 require "http_logger"
 require "vauchar_api/configuration"
-require "active_resource"
-
 require "vauchar_api/version"
+
+require "active_resource"
+require "active_resource/formats_ext"
 
 HttpLogger.log_request_body = true
 
