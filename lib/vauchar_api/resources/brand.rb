@@ -1,4 +1,4 @@
 module VaucharAPI
-  class Coupon < Base
+  class Brand < Base
   end
 end

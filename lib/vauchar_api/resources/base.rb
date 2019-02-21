@@ -8,32 +8,28 @@ module VaucharAPI
     self.include_format_in_path = false
     self.include_root_in_json = false
 
-    def encode(options = {})
-      p "encode"
+    # def encode(options = {})
+    #   p "encode"
 
-      same = dup
-      same.attributes = {self.class.element_name => same.attributes} if self.class.format.extension == "json"
+    #   same = dup
+    #   same.attributes = {self.class.element_name => same.attributes} if self.class.format.extension == "json"
 
-      same.send("to_#{self.class.format.extension}", options)
-    end
+    #   same.send("to_#{self.class.format.extension}", options)
+    # end
 
-    def as_json(options = nil)
-      p "as_json"
+    # def as_json(options = nil)
+    #   p "as_json"
 
-      root = options[:root] if options.try(:key?, :root)
-      if include_root_in_json
-        root = self.class.model_name.element if root == true
-        {root => serializable_hash(options)}
-      else
-        serializable_hash(options)
-      end
-    end
+    #   root = options[:root] if options.try(:key?, :root)
+    #   if include_root_in_json
+    #     root = self.class.model_name.element if root == true
+    #     {root => serializable_hash(options)}
+    #   else
+    #     serializable_hash(options)
+    #   end
+    # end
 
     class << self
-      def load(attributes, remove_root = false, persisted = false)
-        p attributes
-      end
-
       def user
         Configuration.merchant_id
       end
@@ -48,10 +44,10 @@ module VaucharAPI
       #   @headers
       # end
 
-      def api_token
-        token = Base64.strict_encode64 "#{Configuration.merchant_id}:#{Configuration.api_key}"
-        "Basic #{token}"
-      end
+      # def api_token
+      #   token = Base64.strict_encode64 "#{Configuration.merchant_id}:#{Configuration.api_key}"
+      #   "Basic #{token}"
+      # end
 
       # def init_prefix(resource)
       #   init_prefix_explicit(resource.to_s.pluralize, "#{resource}_id")
