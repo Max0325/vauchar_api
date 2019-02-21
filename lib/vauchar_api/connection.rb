@@ -21,11 +21,13 @@ module VaucharAPI
       end
 
       def notify_about_request(method, path, response, arguments)
+        p "notify_about_request"
         ActiveSupport::Notifications.instrument("request.active_resource_detailed") do |payload|
           payload[:method] = method
           payload[:path] = path
           payload[:response] = response
           payload[:data] = arguments
+          p payload
         end
       end
     end

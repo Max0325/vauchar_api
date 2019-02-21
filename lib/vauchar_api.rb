@@ -1,7 +1,6 @@
 require "http_logger"
 require "vauchar_api/configuration"
 require "vauchar_api/version"
-require "vauchar_api/connection"
 
 require "active_resource"
 require "active_resource/formats_ext"
@@ -15,10 +14,12 @@ module VaucharAPI
 end
 
 require "vauchar_api/resources"
+require "vauchar_api/connection"
+require "active_resource/connection_ext"
 
-ActiveSupport::Notifications.subscribe("request.active_resource") do |name, start, finish, id, payload|
-  p payload
-end
+# ActiveSupport::Notifications.subscribe("request.active_resource") do |name, start, finish, id, payload|
+#   p payload
+# end
 
 VaucharAPI.config do |config|
   config.merchant_id = "da2c250b-c417-42d8-936e-9bc4c246f90e"
