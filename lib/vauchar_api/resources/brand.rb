@@ -1,5 +1,7 @@
 module VaucharAPI
   class Brand < Base
-    accepts_attributes_for :name, :email
+    def accepts_attributes
+      [:name, :email]
+    end
   end
 end

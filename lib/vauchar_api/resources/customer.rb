@@ -1,5 +1,7 @@
 module VaucharAPI
   class Customer < Base
-    # accepts_attributes_for :name, :email
+    def accepts_attributes
+      [:name, :email, :phone, :birthday, :created, :last_seen, :total_purchase]
+    end
   end
 end
