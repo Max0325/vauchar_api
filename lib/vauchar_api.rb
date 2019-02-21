@@ -1,6 +1,7 @@
 require "http_logger"
 require "vauchar_api/configuration"
 require "vauchar_api/version"
+require "vauchar_api/connection"
 
 require "active_resource"
 require "active_resource/formats_ext"
