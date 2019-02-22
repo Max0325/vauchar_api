@@ -1,6 +1,6 @@
 module VaucharAPI
   class CustomerList < Base
-    init_prefix :list
+    self.prefix = "/engage/lists/:list_id/"
     self.collection_name = "customers"
   end
 end

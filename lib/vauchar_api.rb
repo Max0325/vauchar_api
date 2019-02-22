@@ -16,6 +16,7 @@ end
 require "vauchar_api/resources"
 require "vauchar_api/connection"
 require "active_resource/connection_ext"
+require "active_resource/custom_methods_ext"
 
 # ActiveSupport::Notifications.subscribe("request.active_resource") do |name, start, finish, id, payload|
 #   p payload
