@@ -1,9 +1,7 @@
 module VaucharAPI
   class CustomerDeal < Base
     init_prefix :customer
-    # self.prefix = "/customers/:customer_id/"
     self.collection_name = "deals"
-    self.element_name = "deal"
 
     def customer_id
       @prefix_options[:customer_id]
