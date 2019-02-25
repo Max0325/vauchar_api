@@ -41,7 +41,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/vauchar_api.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Max0325/vauchar_api.
 
 ## License
 
