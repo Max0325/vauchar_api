@@ -1,4 +1,11 @@
 module VaucharAPI
+  # ==== Examples
+  # deals = VaucharAPI::CustomerDeal.find(:all, params: {customer_id: "cust-15507323535c6e4c416c697"})
+  # deals[1].redemptions
+  # deals[1].voucher.voucher_code # => "DA2C2J65JFVNY"
+  #
+  # deals[1].validate
+
   class CustomerDeal < Base
     init_prefix :customer
     self.collection_name = "deals"
@@ -11,10 +18,6 @@ module VaucharAPI
       self.data.id
     end
 
-    # ==== Examples
-    # deals = VaucharAPI::CustomerDeal.find(:all, params: {customer_id: "cust-15507323535c6e4c416c697"})
-    # deals[1].redemptions
-    # deals[1].voucher.voucher_code # => "DA2C2J65JFVNY"
     def redemptions
       keep_prefix_options do
         resource = post(:redemptions, {}, only_id)
@@ -31,7 +34,13 @@ module VaucharAPI
     end
 
     # ==== Examples
-    # voucher = VaucharAPI::CustomerDeal.redemptions({}, params: {customer_id: "cust-15507323535c6e4c416c697", id: "en-deal-15499589715c627f3b57837"})
+    # voucher = VaucharAPI::CustomerDeal.redemptions(
+    #   {},
+    #   params: {
+    #     customer_id: "cust-15507323535c6e4c416c697",
+    #     id: "en-deal-15499589715c627f3b57837",
+    #   },
+    # )
     #
     # def self.redemptions(*args)
     #   options = {:refund => args[0]}
