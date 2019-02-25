@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Somewhere in your application (probably as part of a new initializer) you should add the following:
+
+```ruby
+require 'vauchar_api'
+
+VaucharAPI.config do |config|
+    config.merchant_id = "your merchant id"
+    config.api_key = "your api key"
+end
+```
 
 ## Development
 
