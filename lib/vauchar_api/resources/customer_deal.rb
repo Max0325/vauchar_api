@@ -1,9 +1,13 @@
 module VaucharAPI
   # ==== Examples
+  # [Read]
   # deals = VaucharAPI::CustomerDeal.find(:all, params: {customer_id: "cust-15507323535c6e4c416c697"})
+  #
+  # [Redemptions]
   # deals[1].redemptions
   # deals[1].voucher.voucher_code # => "DA2C2J65JFVNY"
   #
+  # [Validate]
   # deals[1].validate
 
   class CustomerDeal < Base
