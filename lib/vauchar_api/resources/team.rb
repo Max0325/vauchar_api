@@ -23,7 +23,7 @@ module VaucharAPI
       options = args[0]
       params = options.merge(args[1][:params]) if args[1] && args[1][:params]
       resource = post("redeem/vouchers/#{params[:voucher_id]}", {}, options.to_json)
-      instantiate_record(format.decode(resource.body), {})
+      self.class.format.decode(resource.body)
     end
   end
 end

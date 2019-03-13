@@ -36,10 +36,9 @@ module VaucharAPI
       accepts
     end
 
-    def redemptions(*args)
-      params = args[0][:params]
+    def redemptions(params)
       resource = post("deals/#{params[:deal_id]}/redemptions", {}, only_id)
-      instantiate_record(format.decode(resource.body), {})
+      self.class.format.decode(resource.body)
     end
   end
 end
