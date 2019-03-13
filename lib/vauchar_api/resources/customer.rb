@@ -37,7 +37,7 @@ module VaucharAPI
     end
 
     def redemptions(params)
-      resource = post("deals/#{params[:deal_id]}/redemptions", {}, options.to_json)
+      resource = post("deals/#{params[:deal_id]}/redemptions", {}, only_id)
       instantiate_record(format.decode(resource.body), {})
     end
   end
