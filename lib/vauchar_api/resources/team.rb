@@ -14,5 +14,11 @@ module VaucharAPI
   #   team.destroy
 
   class Team < Base
+    def redeem(voucher_id)
+      keep_prefix_options do
+        resource = post("redeem/vouchers/#{voucher_id}", {}, only_id)
+        self.class.format.decode(resource.body)
+      end
+    end
   end
 end
