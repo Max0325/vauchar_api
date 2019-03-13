@@ -12,13 +12,18 @@ module VaucharAPI
   #   Delete
   #   team = VaucharAPI::Team.find("DA2C253VYBM")
   #   team.destroy
+  #
+  #   Redeem
+  #   team = VaucharAPI::Team.find("DA2C253VYBM")
+  #   data = { user_id: "2", password: "123456" }
+  #   team.redeem(data, params: {voucher_id: "vcr-15524967755c89388793c97"})
 
   class Team < Base
-    def redeem(voucher_id)
-      keep_prefix_options do
-        resource = post("redeem/vouchers/#{voucher_id}", {}, only_id)
-        self.class.format.decode(resource.body)
-      end
+    def redeem(*args)
+      options = args[0]
+      params = options.merge(args[1][:params]) if args[1] && args[1][:params]
+      resource = post("redeem/vouchers/#{params[:voucher_id]}", {}, options.to_json)
+      instantiate_record(format.decode(resource.body), {})
     end
   end
 end

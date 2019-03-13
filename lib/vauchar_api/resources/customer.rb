@@ -26,8 +26,8 @@ module VaucharAPI
   #
   #   Redemptions
   #   customer = VaucharAPI::Customer.find("cust-15507323535c6e4c416c697")
-  #   result = customer.redemptions("en-deal-15499589715c627f3b57837")
-  #   result.voucher.voucher_code # => "DA2C2J65JFVNY"
+  #   voucher = customer.redemptions({deal_id: "en-deal-15499589715c627f3b57837"})
+  #   voucher.voucher_code # => "DA2C2J65JFVNY"
 
   class Customer < Base
     def accepts_attributes
@@ -36,9 +36,9 @@ module VaucharAPI
       accepts
     end
 
-    def redemptions(deal_id)
-      resource = post("deals/#{deal_id}/redemptions", {}, only_id)
-      self.class.format.decode(resource.body)
+    def redemptions(params)
+      resource = post("deals/#{params[:deal_id]}/redemptions", {}, options.to_json)
+      instantiate_record(format.decode(resource.body), {})
     end
   end
 end
