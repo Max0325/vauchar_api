@@ -31,6 +31,7 @@ module VaucharAPI
     self.prefix = "/engage/"
 
     def accepts_attributes
+      return nil if self.new?
       [
         :title,
         :start_time,
