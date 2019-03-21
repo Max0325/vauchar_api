@@ -30,8 +30,16 @@ module VaucharAPI
   class Deal < Base
     self.prefix = "/engage/"
 
-    # def accepts_attributes
-    #   [:name, :email]
-    # end
+    def accepts_attributes
+      [
+        :title,
+        :start_time,
+        :expiry_time,
+        :redemptions_per_user_limit,
+        :redemption_per_user_time_limit_unit,
+        :brand_id,
+        :terms,
+      ]
+    end
   end
 end
