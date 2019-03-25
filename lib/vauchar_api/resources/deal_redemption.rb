@@ -38,13 +38,12 @@ module VaucharAPI
     self.element_name = "deals/redemptions"
 
     def redemption_id
-      # self.prefix = ""
       resource = get("vouchers/#{self.voucher_id}/redemptions", {})
       self.class.format.decode(resource.body)
     end
 
     def destroy
-      resource = delete("vouchers/#{self.voucher_id}/redemptions/#{}", {}, only_id)
+      resource = delete("vouchers/#{self.voucher_id}/redemptions/#{self.redemption_id}", {}, only_id)
       self.class.format.decode(resource.body)
     end
   end
