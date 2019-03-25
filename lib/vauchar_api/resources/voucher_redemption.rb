@@ -1,14 +1,13 @@
 module VaucharAPI
   class VoucherRedemption < Base
-    self.prefix = "/vouchers/"
+    self.element_name = "vouchers"
 
-    def self.find(*args)
-      options = { :refund => args[0] }
-      params = {}
-      params = args[1][:params] if args[1] && args[1][:params]
-
-      resource = post(":voucher_id/redemptions", params, options.to_json)
-      instantiate_record(format.decode(resource.body), {})
+    def self.redemptions(params)
+      p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+      resource = get("#{params[:voucher_id]}/redemptions", {})
+      data = resource
+      p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+      p data
     end
   end
 end
