@@ -1,8 +1,11 @@
 module ActiveResource
   module Formats
     def self.remove_root(data)
-      data = data.with_indifferent_access
-      data = data.key?(:data) ? data[:data] : data
+      begin 
+        data = data.with_indifferent_access
+        data = data.key?(:data) ? data[:data] : data        
+      rescue
+      end
       p "Formats==================================="
       p data
       p "=========================================="
