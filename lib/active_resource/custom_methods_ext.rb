@@ -1,5 +1,3 @@
-require "active_resource/connection_ext"
-
 module ActiveResource
   module CustomMethods
     def delete(method_name, options = {}, body = nil)
