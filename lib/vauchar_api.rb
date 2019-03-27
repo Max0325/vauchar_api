@@ -1,10 +1,10 @@
-require "vauchar_api/configuration"
-require "vauchar_api/version"
-
 require "active_resource"
 require "active_resource/formats_ext"
 require "active_resource/connection_ext"
 require "active_resource/custom_methods_ext"
+
+require "vauchar_api/configuration"
+require "vauchar_api/version"
 
 module VaucharAPI
   def self.config
@@ -15,6 +15,4 @@ end
 require "vauchar_api/resources"
 require "vauchar_api/connection"
 
-if VaucharAPI::Base.respond_to?(:connection_class)
-  VaucharAPI::Base.connection_class = VaucharAPI::Connection
-end
+VaucharAPI::Base.connection_class = VaucharAPI::Connection
