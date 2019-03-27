@@ -4,10 +4,8 @@ module VaucharAPI
 
     def delete_with_body(path, body = "", headers = {})
       with_auth do
-        HTTParty.delete("#{site.scheme}://#{site.host}:#{site.port}#{path}", {
-          headers: build_request_headers(headers, :delete, self.site.merge(path)),
-          body: body,
-        })
+        headers = build_request_headers(headers, :delete, self.site.merge(path))
+        HTTParty.delete("#{site.scheme}://#{site.host}:#{site.port}#{path}", { headers: headers, body: body })
       end
     end
 
@@ -35,7 +33,8 @@ module VaucharAPI
           payload[:path] = path
           payload[:response] = response
           payload[:data] = arguments
-          p payload
+          p "### Notify About Request ###"
+          y payload
         end
       end
     end

@@ -10,7 +10,6 @@ module VaucharAPI
 
     def encode(options = {})
       same = dup
-      p accepts_attributes
       same.attributes = same.attributes.slice(*accepts_attributes) if (accepts_attributes)
       same.send("to_#{self.class.format.extension}", options)
     end

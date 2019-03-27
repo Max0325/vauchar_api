@@ -10,9 +10,8 @@ module VaucharAPI
     end
 
     def self.destroy(params)
-      begin 
-        redemption = VaucharAPI::VoucherRedemption.find({voucher_id: params[:voucher_id]})
-        p redemption[:id]
+      begin
+        redemption = VaucharAPI::VoucherRedemption.find({ voucher_id: params[:voucher_id] })
         resource = delete("#{params[:voucher_id]}/redemptions/#{redemption[:id]}")
       rescue
         p "destroy fail!!"
