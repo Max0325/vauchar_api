@@ -34,7 +34,7 @@ module VaucharAPI
           payload[:response] = response
           payload[:data] = arguments
           p "### Notify About Request ###"
-          y payload
+          pp payload
         end
       end
     end
