@@ -2,6 +2,15 @@ module VaucharAPI
   class Connection < ActiveResource::Connection
     attr_reader :response
 
+    def delete_with_body(path, body = "", headers = {})
+      with_auth do
+        HTTParty.delete("#{site.scheme}://#{site.host}:#{site.port}#{path}", {
+          headers: build_request_headers(headers, :delete, self.site.merge(path)),
+          body: body,
+        })
+      end
+    end
+
     module ResponseCapture
       def handle_response(response)
         @response = super
