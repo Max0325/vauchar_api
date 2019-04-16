@@ -40,6 +40,8 @@ module VaucharAPI
         :redemption_per_user_time_limit_unit,
         :brand_id,
         :terms,
+        :valid_lists,
+        :invalid_lists,
       ]
     end
   end
